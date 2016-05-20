@@ -1,0 +1,32 @@
+object CurrentProject: TCENativeProject
+  OptionsCollection = <  
+    item
+      name = 'default'
+      runOptions.options = [poNewConsole]
+    end  
+    item
+      name = 'debug'
+      debugingOptions.debugConditions = True
+      debugingOptions.generateInfos = True
+      outputOptions.boundsCheck = onAlways
+    end  
+    item
+      name = 'unittest'
+      outputOptions.boundsCheck = onAlways
+      outputOptions.unittest = True
+    end  
+    item
+      name = 'release'
+      outputOptions.inlining = True
+      outputOptions.boundsCheck = offAlways
+      outputOptions.optimizations = True
+      outputOptions.release = True
+    end>
+  Sources.Strings = (
+    'StepperForm.d'
+    'qte5.d'
+    'main.d'
+    'device.d'
+  )
+  ConfigurationIndex = 0
+end

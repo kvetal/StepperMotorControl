@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="Stepper/Stepper.dproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Stepper/StepperForm.d">
+    <Files>
+      <File FileName="Stepper/main.d" Line="7" Column="19" />
+      <File FileName="Stepper/StepperForm.d" Line="40" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

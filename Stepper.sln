@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{3947E667-4C90-4C3A-BEB9-7148D6FE0D7C}") = "Stepper", "Stepper\Stepper.dproj", "{6AD0A013-279D-41F3-8936-DD908857D3EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Unittest|Any CPU = Unittest|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AD0A013-279D-41F3-8936-DD908857D3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD0A013-279D-41F3-8936-DD908857D3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD0A013-279D-41F3-8936-DD908857D3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD0A013-279D-41F3-8936-DD908857D3EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD0A013-279D-41F3-8936-DD908857D3EE}.Unittest|Any CPU.ActiveCfg = Unittest|Any CPU
+		{6AD0A013-279D-41F3-8936-DD908857D3EE}.Unittest|Any CPU.Build.0 = Unittest|Any CPU
+	EndGlobalSection
+EndGlobal
