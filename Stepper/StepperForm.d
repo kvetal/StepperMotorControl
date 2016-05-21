@@ -106,12 +106,26 @@ class StepperForm : QWidget
 
 
 	}
+
+/*
+ * Реакция прошивки МК на полученые команды.
+ * Команды могут идти одна за другой.
+ * !!! Чувствительны к регистру !!!
+ * "B"(латиница) Вращение против часовой стрелки
+ * "F" Врашение по часовой стрелки 
+ * "S" Стоп
+ * "D" Следующие символы до "\0" переводятся в число тип int и задаются в качестве задержки между шагами.
+ * 
+	 */
+
+	//!!! ДОБАВИТЬ ПРОВЕРКУ КОРРЕКТНОСТИ COM-ПОРТА!!!
+
+// при Изменении значения в qsbDelay меняем задержку между шагами и восстанавливаем действие.
 	void m_qrbValue(int N,int val){
 		if (s_port is null) {
 			s_port = new SerialPort(qlePort.text!string);
 			Thread.sleep(dur!("seconds")(2));
 		}
-
 		string tmpstr;
 		if (qrbCW.isChecked) {
 			tmpstr = "D"~to!string(val)~"\0"~"F";
@@ -130,8 +144,8 @@ class StepperForm : QWidget
 
 	}
 
-
-    void m_qrbCW(int N,bool sel){
+// Крутим вперёд (По часовой)
+    void m_qrbCW(int N,bool sel){ 
 		if (s_port is null) {
 				s_port = new SerialPort(qlePort.text!string);
             Thread.sleep(dur!("seconds")(2));
@@ -143,6 +157,7 @@ class StepperForm : QWidget
         }
     }
 
+// Крутим назад (Против часовой)
     void m_qrbCCW(int N,bool sel){
 		if (s_port is null) {
 			s_port = new SerialPort(qlePort.text!string);
@@ -155,6 +170,7 @@ class StepperForm : QWidget
 		}
     }
 
+// Останавливаем (с отключением напряжения с обмоток)
     void m_qrbStop(int N,bool sel){
 		if (s_port is null) {
 			s_port = new SerialPort(qlePort.text!string);
