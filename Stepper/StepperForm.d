@@ -7,15 +7,18 @@ import serial.device;
 import std.conv;
 
 extern (C) {
-    void h_qrbCW(StepperForm*h,int N,bool sel) {        
+    void h_qrbCW(StepperForm* h,int N,bool sel) {        
         (*h).m_qrbCW(N,sel);
     }
-    void h_qrbCCW(StepperForm*h,int N,bool sel) {       
+    void h_qrbCCW(StepperForm* h,int N,bool sel) {       
         (*h).m_qrbCCW(N,sel);
     }
-    void h_qrbStop(StepperForm*h,int N,bool sel) {        
+    void h_qrbStop(StepperForm* h,int N,bool sel) {        
         (*h).m_qrbStop(N,sel);
     }
+	void h_qsbDelay(StepperForm* h,int N,int val){
+		(*h).m_qrbValue(N,val);
+	}
 }
 
 
@@ -30,7 +33,7 @@ class StepperForm : QWidget
 //	QCheckBox qcbOnOff;
 	SerialPort s_port;
 	char[] buf;
-    QAction act_CW,act_CCW,act_Stop;
+    QAction act_CW,act_CCW,act_Stop, act_qsbDelay;
 
 
 
@@ -93,14 +96,40 @@ class StepperForm : QWidget
         act_CW = new QAction(this,&h_qrbCW,aThis);
         act_CCW = new QAction(this,&h_qrbCCW,aThis);
         act_Stop = new QAction(this,&h_qrbStop,aThis);
+		act_qsbDelay = new QAction(this,&h_qsbDelay,aThis);
 
         connects(qrbCW,"toggled(bool)",act_CW,"Slot_v__A_N_b(bool)");
         connects(qrbCCW,"toggled(bool)",act_CCW,"Slot_v__A_N_b(bool)");
         connects(qrbStop,"toggled(bool)",act_Stop,"Slot_v__A_N_b(bool)");
+		connects(qsbDelay,"valueChanged(int)",act_qsbDelay,"Slot_v__A_N_i(int)");
 
 
 
 	}
+	void m_qrbValue(int N,int val){
+		if (s_port is null) {
+			s_port = new SerialPort(qlePort.text!string);
+			Thread.sleep(dur!("seconds")(2));
+		}
+
+		string tmpstr;
+		if (qrbCW.isChecked) {
+			tmpstr = "D"~to!string(val)~"\0"~"F";
+			s_port.write(tmpstr);
+		}
+
+		if (qrbCCW.isChecked) {
+			tmpstr = "D"~to!string(val)~"\0"~"B";
+			s_port.write(tmpstr);
+		}
+
+		if (qrbStop.isChecked) {
+			tmpstr = "D"~to!string(val)~"\0"~"S";
+			s_port.write(tmpstr);
+		}
+
+	}
+
 
     void m_qrbCW(int N,bool sel){
 		if (s_port is null) {
