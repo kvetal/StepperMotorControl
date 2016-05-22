@@ -3,3 +3,4 @@
 
 -dmd required. http://dlang.org/ <br>
 -QtE5 required. https://github.com/MGWL/QtE5 <br>
+-serial-port. https://github.com/NCrashed/serial-port <br>
