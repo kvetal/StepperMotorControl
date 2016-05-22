@@ -1,9 +1,10 @@
-﻿<Properties StartupItem="Stepper/Stepper.dproj">
+﻿<Properties StartupItem="Stepper/Stepper.dproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Stepper/StepperForm.d">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Stepper/main.d" Line="7" Column="19" />
-      <File FileName="Stepper/StepperForm.d" Line="40" Column="31" />
+      <File FileName="Stepper/main.d" Line="1" Column="1" />
+      <File FileName="Stepper/StepperForm.d" Line="1" Column="1" />
+      <File FileName="Stepper/qte5.d" Line="306" Column="64" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
